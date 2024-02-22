@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>簡単な掲示板</title>
+
+</head>
+<body>
+<div class="container">
+
+
+        <!-- メインコンテンツ -->
+        <div class="main-content">
+            <!-- ここにメインコンテンツを追加 -->
+                 
+    <h1>掲示板</h1>
+  <ul id="messages"></ul>
+
+  <form id="messageForm">
+    <label for="username">ユーザー名:</label>
+    <input type="text" id="username" required>
+    <label for="message">メッセージ:</label>
+    <textarea id="message" required></textarea>
+    <button type="submit">投稿</button>
+  </form>
+        </div>
+        <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿内容</title>
+</head>
+<body>
+
+<h1>投稿された内容</h1>
+<% @posts.each do |post|%>
+<div id="post-content">
+    <!-- ここに投稿内容が表示されます -->
+    <%= post %>
+</div>
+<%end%>
+
+</body>
+</html>
+
+  </div>
+ 
+
+  <footer>
+  <p>2024/2/5</p>
+  </footer>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    height: 100vh; /* 画面の高さいっぱいに設定 */
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #messages {
+      list-style: none;
+      padding: 0;
+    }
+
+    .message {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const messageForm = document.getElementById('messageForm');
+      const messagesList = document.getElementById('messages');
+
+      messageForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const usernameInput = document.getElementById('username');
+        const messageInput = document.getElementById('message');
+
+        const username = usernameInput.value;
+        const message = messageInput.value;
+
+        if (username && message) {
+          const li = document.createElement('li');
+          li.classList.add('message');
+          li.innerHTML = `<strong>${username}:</strong> ${message}`;
+          messagesList.appendChild(li);
+
+          usernameInput.value = '';
+          messageInput.value = '';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

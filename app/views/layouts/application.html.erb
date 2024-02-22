@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Imai</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <div class="sidebar">
+            <!-- サイドバーのコンテンツ -->
+            <ul>
+                <li><%=link_to("ホーム","/about") %></li>
+                <li><%=link_to("こうすけ","/") %></li>
+                <li><a href="#">ポートフォリオ</a></li>
+                <li><a href="#">フレンド</a></li>
+            </ul>
+        </div>
+
+    <%= yield %>
+  </body>
+</html>
